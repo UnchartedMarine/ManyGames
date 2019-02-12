@@ -1,49 +1,38 @@
-import java.util.Random;
-import java.util.Scanner;
-
-public class GuessingGame {
+public class GuessingGame{
 	int targetNumber;
-	int guess;
-	Scanner in;
-	public GuessingGame(int min,int max) {
-		Random rand =new Random();
-		targetNumber=rand.nextInt(max-min+1)+min;
-		in= new Scanner(System.in);
+	int Guess;
 
+	public GuessingGame(){
+	
+	System.out.println("Please specify the minimum of the integer");
+	int Min=Integer.parseInt(System.console().readLine());
+	System.out.println("Please specify the maximum of the integer");
+	int Max=Integer.parseInt(System.console().readLine());
+	
+	targetNumber=Min + (int)(Math.random() * ((Max - Min) + 1));
+	System.out.println("Guess my Integer !");
+	
+	int i=1;
+	while(i==1){
+		i=playerGuess();	
+		}	
+	System.out.println("Great Job Finding my number !! ");
+	
 	}
 	
-	private int playerguess() {
-		System.out.print("Guess a number : ");
-		int guess=in.nextInt();
-		if(guess==targetNumber) {
-			System.out.println("You have guessed my number correctly !! ");
-			return 0;
-		}
-		else if (guess<targetNumber) {
-			System.out.println("My number is greater than yours");
-			return 1;
-		}
-		else {
-			System.out.println("My number is lesser than yours");
-			return 1;
-		}
-	}
-	public static void launchGuessingGame() {
-		Scanner in= new Scanner(System.in);
-		System.out.println("Let's play a Guessing Game, you must guess the number i'm currently thinking about.");
-		System.out.println("But first of all,you must give the the interval in which you want to play.");
-		System.out.print("Please enter the minimal value of the Interval : ");
-		int min=in.nextInt();
-		System.out.print("Please enter the maximum value of the Interval : ");
-		int max=in.nextInt();
-		GuessingGame game=new GuessingGame(min, max);
-		
-		int i=1;
-		while(i==1) {
-			i=game.playerguess();
-		}
-		in.close();
-		
-	}
+	public int playerGuess(){
 	
+	System.out.println("Please enter an Integer : ");
+	Guess=Integer.parseInt(System.console().readLine());
+	
+	if (Guess==targetNumber)return 0;
+	
+	else if(Guess>targetNumber){
+		System.out.println("My number is lesser than yours");
+		}
+	else {
+		System.out.println("My number is greater than yours");
+		}
+	return 1;	
+	}
 }
