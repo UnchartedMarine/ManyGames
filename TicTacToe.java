@@ -24,6 +24,15 @@ public class TicTacToe{
 	
 	}
 	
+	public static void launchTicTacToe() {
+	TicTacToe game=new TicTacToe();
+	System.out.println("Welcome to this game of noughts and crosses \n Have Fun! ");
+	for(int i=0;i<10;i++) {
+		game.afficher();
+		game.play();
+		}
+	}
+	
 	public void afficher(){
 	int k=0;
 	for(int i=0;i<5;i++){
@@ -48,13 +57,18 @@ public class TicTacToe{
 	Scanner in =new Scanner(System.in);
 	System.out.println("Enter where you want to play or press 0 for help");
 	int pos=in.nextInt();
-	String strpos=position.get(pos);
-	StringTokenizer tok=new StringTokenizer(strpos,"-");
-	String tabpos[]=new String[2];
-	tabpos[0]=tok.nextToken();
-	tabpos[1]=tok.nextToken();
-	plateau[Integer.parseInt(tabpos[0])][Integer.parseInt(tabpos[1])]=token;	
-	turn++;		
+	if(pos==0) {
+		help();
+	}
+	else {
+		String strpos=position.get(pos);
+		StringTokenizer tok=new StringTokenizer(strpos,"-");
+		String tabpos[]=new String[2];
+		tabpos[0]=tok.nextToken();
+		tabpos[1]=tok.nextToken();
+		plateau[Integer.parseInt(tabpos[0])][Integer.parseInt(tabpos[1])]=token;	
+		turn++;	
+		}
 	}
 	
 	public static void help(){
