@@ -5,6 +5,7 @@ public class ManyGames {
 		//GuessingGame.launchGuessingGame();
 		new Morpion();
 		new Bang();
+		//test
 	}
 
 }
