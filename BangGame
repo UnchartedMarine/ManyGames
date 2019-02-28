@@ -1,0 +1,37 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.awt.*;
+import javax.swing.*;
+
+public class BangGame implements Runnable {
+
+	int countdownTime;
+	
+	public BangGame() {
+		Random rand =new Random();
+		countdownTime = rand.nextInt(10)+3;
+	}
+	
+	public void run (){
+		try{
+			System.out.println("Ready ???\n");
+			//System.out.println(countdownTime);
+			Thread.sleep(countdownTime*1000); // passer de millisec en sec
+			System.out.println("START !!!!\n");
+			
+			//PARTIE KEYLISTENER
+			TestKeyListener test1 = new TestKeyListener();
+			
+		}catch(Exception e){}
+	}// run
+	
+	
+	
+	public static void launchingBangGame(){
+		//Menu menuBang = new Menu();
+		
+		
+	}
+	
+	
+}
